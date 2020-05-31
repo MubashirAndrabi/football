@@ -26,7 +26,7 @@ function England(){
 })
     },[])
 
-    console.log(england)
+    // console.log(england)
 
 
     return(

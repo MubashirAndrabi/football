@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { List, Avatar, Row, Col, Typography } from 'antd';
 import './Standings.css';
 
-function Standings(props){
+function StandingsAway(props){
 
     const[standings, setStandings] = useState([]);
 
@@ -20,7 +20,7 @@ function Standings(props){
 	}
 }).then((response)=>{
     
-        setStandings(response.data.standings[0]);   
+        setStandings(response.data.standings[2]);   
     
    
 
@@ -77,4 +77,4 @@ function Standings(props){
     )
 }
 
-export default Standings;
+export default StandingsAway;

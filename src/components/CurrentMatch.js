@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux';
 import {currentMatch} from '../ducks/scores';
 import {allScores} from '../ducks/scores';
 import HomeTeam from './HomeTeam';
+import AwayTeam from './AwayTeam';
 
 function CurrentMatch(props){
 
@@ -21,7 +22,7 @@ function CurrentMatch(props){
     return store.teams
 
 })
-  //  console.log(teams)
+   console.log(teams)
    
 
   const match = results.find((item)=>{
@@ -45,14 +46,15 @@ function CurrentMatch(props){
         <Card.Grid hoverable={false} style={{width: '100%'}}>
       <p style={{textAlign: 'center'}}> {match.competition.name} </p>
       <Row style={{textAlign:'center'}}>
-          <Col span={9}> <span style={{height: "100px", width:"100px", backgroundColor:"#bbb", borderRadius:"50%", display:"inline-block"}}></span> </Col>
+          <Col span={9}><img src={teams[match.homeTeam.id].crestUrl} width="100" height="100"></img> </Col>
           <Col span={6}> 
           <Badge count={match.status} style={{ backgroundColor: '#bbb' }} />
           <div> {match.score.fullTime.homeTeam} - {match.score.fullTime.awayTeam} </div>
-          <div> {new Date(match.utcDate).toDateString()} </div>
+          <div> {new Date(match.utcDate).toUTCString()} </div><br/>
+          <div> Venue: {teams[match.homeTeam.id].venue} </div>
           
           </Col>
-          <Col span={9}> <span style={{height: "100px", width:"100px", backgroundColor:"#bbb", borderRadius:"50%", display:"inline-block"}}/> </Col>
+          <Col span={9}> <img src={teams[match.awayTeam.id].crestUrl} width="100" height="100"></img> </Col>
     </Row>
     </Card.Grid>
 
@@ -71,19 +73,7 @@ function CurrentMatch(props){
 
     </Card.Grid > 
     <Card.Grid hoverable={false} style={{width: '100%'}}>
-
-    <p style={{textAlign: 'center'}}> Away Team  </p>
-    <p> Crest & Full Name </p>
-    <p> Short Name </p>
-    <p> Founded </p>
-    <p> Colors </p>
-    <p> Address </p>
-    <p> Phone </p>
-    <p> Email </p>
-    <p> Website </p>
-    <p> ClubColors </p>
-    <p> Venue </p>
-
+      <AwayTeam awayTeamId={match.awayTeam.id}/>
     </Card.Grid > 
    
     </Card>) : null

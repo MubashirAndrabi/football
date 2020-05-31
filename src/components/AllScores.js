@@ -53,23 +53,28 @@ function AllScores(){
       <Avatar src={teams[item.awayTeam.id] &&  teams[item.awayTeam.id].crestUrl }></Avatar><Typography.Text> {item.awayTeam.name}</Typography.Text>
             </div> */}
             {/* <a href="/currentmatch" style={{width:"100%"}} >  */}
+
+            
             <a onClick={() => history.push({pathname:'/currentmatch/'+item.id})} style={{width:"100%"}} > 
             
     <Row style={{width:"100%",border: "2px solid grey"}} justify="center" align="middle">
-      <Col span={10} style={{textAlign:"right",padding:"10px"}}>
+        
+        
+      <Col span={9} style={{textAlign:"right",padding:"10px"}}>
       <Typography.Text strong>{item.homeTeam.name}</Typography.Text> <Avatar src={teams[item.homeTeam.id] &&  teams[item.homeTeam.id].crestUrl  }></Avatar> 
       </Col>
 
 
-      <Col span={4} style={{textAlign:"center"}}>
+      <Col span={6} style={{textAlign:"center"}}>
           <Typography.Text disabled style={{fontSize:'10px'}}> {item.status}</Typography.Text>
-          <div style={{ width: "100%",border: "1px solid grey",marginBottom:"23px"}}>
+          <div style={{ width: "100%",border: "1px solid grey"}}>
           <Typography.Text strong> {item.score.fullTime.homeTeam} - {item.score.fullTime.awayTeam} </Typography.Text>
-          </div>      
+          </div> 
+          <Typography.Text strong> {new Date(item.utcDate).toUTCString()} </Typography.Text>     
       </Col>
 
 
-      <Col span={10} style={{textAlign:"left",padding:"10px"}}>
+      <Col span={9} style={{textAlign:"left",padding:"10px"}}>
       <Avatar src={teams[item.awayTeam.id] &&  teams[item.awayTeam.id].crestUrl }></Avatar> <Typography.Text strong> {item.awayTeam.name} </Typography.Text>
       </Col>
 

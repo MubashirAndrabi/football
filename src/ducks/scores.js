@@ -30,7 +30,7 @@ export function currentMatch(value){
 export function allScores(){
     return (dispatch,getState) => {
 
-        Axios.get("https://api.football-data.org/v2/matches?dateFrom=2020-05-15&dateTo=2020-05-25", {
+        Axios.get("https://api.football-data.org/v2/matches?dateFrom=2020-06-15&dateTo=2020-06-25", {
 	"headers": {
 		'X-Auth-Token': '78c344381c794ce880b288d279bb81a0'
 	}

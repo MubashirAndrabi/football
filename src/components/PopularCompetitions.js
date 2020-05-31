@@ -30,7 +30,7 @@ function PopularCompetitions(){
 
    const leagues = []
 
-  //  console.log(popularLeagues)
+   console.log(popularLeagues)
 
     return(
           
@@ -53,6 +53,7 @@ function PopularCompetitions(){
           title={item.area.name}
           // description={item.name + "Current Matchday" + item.currentSeason.currentMatchday}
           description={<MatchdayInfo name={item.name} current={item.currentSeason.currentMatchday}/>}
+          style={{padding:"5px"}}
         />
       </List.Item>
       </a>

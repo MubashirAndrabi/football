@@ -16,6 +16,8 @@ import  CurrentMatch from './components/CurrentMatch';
 import Standings from './components/Standings';
 import Europe from './components/Europe';
 import England from './components/England';
+import SwitchStandings from './components/SwitchStandings';
+import News from './components/News';
 
 function App() {
   return (
@@ -48,8 +50,12 @@ function App() {
 
       <Route path="/" exact render={props=> <AllScores/>}/>
 
-      <Route path="/standings/:positionid" render={(props)=>{
+      {/* <Route path="/standings/:positionid" render={(props)=>{
         return <Standings {...props}/>
+      }}/> */}
+
+      <Route path="/standings/:positionid" render={(props)=>{
+        return <SwitchStandings {...props}/>
       }}/>
       
       <Route path='/europe' render={(props)=>{
@@ -61,6 +67,12 @@ function App() {
 
       }}/>
 
+    </Col>
+
+    <Col span={5} style={{marginLeft:"20px"}}>
+    <h2 style={{marginTop:"20px"}}> News Feed </h2>
+
+      <News/>
     </Col>
   </Row>
 
